@@ -1,0 +1,12 @@
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: gama_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gama
+    ports:
+      - "5432:5432"
