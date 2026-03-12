@@ -1,12 +1,16 @@
-
+version: '3.8'
 services:
   db:
-    image: postgres
+    image: postgres:15-alpine
+    container_name: postgres_container
     restart: always
-    container_name: gama_db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: gama
     ports:
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
